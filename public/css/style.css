@@ -30,7 +30,7 @@ a {
 
 .nav-brand {
     font-size:1.5em;
-    font-weight: bolder;
+    font-weight: bold;
 
 }
 
@@ -128,4 +128,36 @@ table {
     background-color: rgb(240, 240, 240);
     border-color:#ffff;
     box-shadow:1px 3px 5px #3374b6;
+}
+
+
+/*______ RESPONSIVE________________*/
+
+@media only screen and (max-width:800px) {
+   
+    table, thead, tbody, th, td, tr {
+        display:block;
+    }
+    .container {
+        text-align: center;
+    }
+
+    thead tr{
+        position:absolute;
+        top:-9999px;
+        left:-9999px;
+        
+    }
+    tr {
+        border: 1px solid  var(--border);
+    }
+
+    td {
+        border:none;
+        border-bottom:1px solid var(--light);
+        position:relative;
+        box-shadow:1px 3px 5px #3374b6;
+    }
+
+
 }
