@@ -32,18 +32,52 @@ exports.create = (req,res) => {
             })
         })
 
-
 }
 
 
 // Get all Users
 exports.read = ( req,res) => {
-
+    Person.find()
+        .then(users => {
+            res.send(users)
+        })
+        .catch(err => {
+            res.status(500).send( {
+                message : err.message || "Users not found..."
+            })
+        })
 }
 
 
 // update User with ID
 exports.update = (req,res) => {
+
+    if(!req.body){
+        res.status(400)
+            .send({message:"Form can not be empty!"})
+    }
+
+    const id = req.params.id
+
+    Person.findByIdAndUpdate(id, req.body, { useFindAndModify : false})
+        .then(user => {
+
+            if(!user) {
+                res.status(400).send({ 
+                    message :`Can not update the user id :${id} not found`
+                })
+            }else {
+                res.send(user)
+            }
+
+
+        })
+        .catch(err => {
+            res.status(500).send({
+                message : err.message || "ERROR UPDATE"
+            })
+        })
+       
 
 }
 
