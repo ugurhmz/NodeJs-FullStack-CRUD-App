@@ -23,7 +23,8 @@ a {
     font-family: 'PT Sans', sans-serif;
 }
 i {
-    color:white;
+    color:white !important;
+    
 }
 
 .container {
