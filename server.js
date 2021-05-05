@@ -3,7 +3,7 @@ const app = express()
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const path = require('path')
-
+const routes = require('./server/routes/allRoutes')
 
 dotenv.config( { path:'config.env'} )
 const PORT = process.env.PORT || 8080
@@ -21,24 +21,8 @@ app.set("view engine","ejs")
 // ALL static files
 app.use(express.static('public'))
 
-
-
-app.get('/',(req,res) => {
-
-    res.render('index')
-})
-
-app.get('/add-user',(req,res) => {
-
-    res.render('add_user')
-})
-
-app.get('/update-user', (req,res) => {
-
-    res.render('update_user')
-    
-})
-
+//____________________ routes___________
+app.use(routes)
 
 
 
