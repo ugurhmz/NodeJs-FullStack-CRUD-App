@@ -4,12 +4,18 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const path = require('path')
 const routes = require('./server/routes/allRoutes')
+const connectDB = require('./server/database/db_connection')
+
 
 dotenv.config( { path:'config.env'} )
 const PORT = process.env.PORT || 8080
 
 // log request
 app.use(morgan('tiny'))
+
+// MongoDB Connection
+connectDB()
+
 
 // body-parser depracated therefore  express
 app.use(express.urlencoded({ extended : true }))
