@@ -1,8 +1,25 @@
+const axios = require('axios')
+
+
+
+
+
 
 //_________________ / _____________________
 exports.indexRoutes = (req,res) => {
 
-    res.render('index')
+    axios.get('http://localhost:3000/api/users')
+        .then(alluser => {
+            console.log(alluser)
+            res.render('index', {
+                alluser:alluser.data
+            })
+        })
+        .catch(err => {
+            res.send(err)
+        })
+
+   
 }
 
 //_________________ /add_user _____________________

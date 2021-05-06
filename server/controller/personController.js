@@ -37,7 +37,26 @@ exports.create = (req,res) => {
 
 // Get all Users
 exports.read = ( req,res) => {
-    Person.find()
+    
+    if(req.query.id){
+        const id = req.query.id
+        console.log(id);
+        
+        Person.findById(id)
+        .then(user => {
+            if(!user){
+                res.status(404).send({message:"Not found USER"})
+            }else {
+                res.send(user)
+            }
+        })
+        .catch(err => {
+            res.status(500).send({message :"ERROR!"})
+        })
+
+
+    }else {
+        Person.find()
         .then(users => {
             res.send(users)
         })
@@ -46,6 +65,11 @@ exports.read = ( req,res) => {
                 message : err.message || "Users not found..."
             })
         })
+    }
+
+
+
+
 }
 
 
