@@ -30,5 +30,19 @@ exports.add_user = (req,res) => {
 
 //_________________ /update_user_____________________
 exports.update_user = (req,res) => {
-    res.render('update_user')
+
+    axios.get('http://localhost:3000/api/users',{
+        params : {  id : req.query.id }    
+    })
+    .then(user => {
+        res.render('update_user',{
+            specificUser : user.data
+        })
+        console.log(user.data)
+    })
+    .catch(err => {
+        res.send(err)
+    })
+
+
 }
