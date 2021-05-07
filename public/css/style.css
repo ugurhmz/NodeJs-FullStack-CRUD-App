@@ -53,7 +53,7 @@ i {
 
 .border-shadow {
     border:1px solid var(--dark);
-    box-shadow:1px 3px 10px #4275a8;
+    box-shadow:2px  5px 5px #7bacdd;
     
 }
 

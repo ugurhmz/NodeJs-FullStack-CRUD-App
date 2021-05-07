@@ -7,12 +7,13 @@
         <td><%= user.gender %> </td>
         <td><%= user.status %> </td>
         <td>
-            <a href="/update-user?id=<%= user._id %>" class="btn border-shadow update">
-                <span class="text-gradien"><i class="fas fa-pencil-alt"></i></span>
+            <a href="/update-user?id=<%= user._id %>" class="btn border-shadow update" style="cursor: pointer;background-color: rgba(70, 238, 174, 0.766);">
+                <span class="text-gradient"><i class="fas fa-pencil-alt" style="background-color:transparent;"></i></span>
             </a>
     
-            <a class="btn border-shadow delete">
-                <span class="text-gradien"><i class="fas fa-times"></i></span>
+            <a class="btn border-shadow delete" data-id="<%= user._id %> "
+             style="cursor: pointer;background-color: rgba(218, 98, 122, 0.766);">
+                <span class="text-gradient" style="background-color: darkblue; color:white;"><i class="fas fa-times" style="background-color:transparent;"></i></span>
             </a>
            
         </td>
